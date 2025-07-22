@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "新規投稿";
+}
+
+<h2>新規投稿</h2>
+
+<form method="post" action="/Home/Create">
+    <label>名前：</label><br />
+    <input type="text" name="userName" class="form-control" style="max-width:300px;" /><br />
+
+    <label>コメント：</label><br />
+    <textarea name="comment" rows="5" cols="60" class="form-control" placeholder="投稿内容を入力してください"></textarea><br />
+
+    <button type="submit" class="btn btn-primary mt-2">投稿する</button>
+</form>
+
+<br />
+<a href="/Home/Index">投稿一覧に戻る</a>

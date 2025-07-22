@@ -1,0 +1,32 @@
+﻿@model List<string>
+@{
+    ViewData["Title"] = "教員専用ページ";
+}
+
+<h2>教員専用ページ</h2>
+
+<h4>投稿一覧（複数選択して削除）</h4>
+<form method="post" action="/Home/DeleteSelected">
+    <ul>
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <li>
+                <input type="checkbox" name="deleteIndexes" value="@i" />
+                @Model[i]
+            </li>
+        }
+    </ul>
+    <button type="submit" class="btn btn-danger">選択した投稿を削除</button>
+</form>
+
+<hr />
+
+<h4>指定日以前の投稿を一括削除</h4>
+<form method="post" action="/Home/DeleteBefore">
+    <input type="date" name="cutoffDate" class="form-control" style="max-width:200px;" />
+    <br />
+    <button type="submit" class="btn btn-warning">指定日以前を削除</button>
+</form>
+
+<br />
+<a href="/Home/Index">投稿一覧に戻る</a>

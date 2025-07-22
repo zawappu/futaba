@@ -1,0 +1,32 @@
+﻿@model List<string>
+@{
+    ViewData["Title"] = "投稿一覧";
+}
+
+<h2>投稿一覧</h2>
+
+@if (Model != null && Model.Any())
+{
+    <ul>
+    @foreach (var line in Model)
+    {
+        var parts = line.Split(" | ");
+        if (parts.Length == 3)
+        {
+            <li><strong>@parts[1]</strong>（@parts[0]）:<br />@parts[2]</li>
+        }
+        else
+        {
+            <li>@line</li> <!-- フォールバック表示 -->
+        }
+    }
+    </ul>
+}
+else
+{
+    <p>まだ投稿はありません。</p>
+}
+
+<br />
+<a href="/Home/Create">新しく投稿する</a>
+<a href="/Home/Teacher" style="margin-left:20px;">教員専用へ</a>

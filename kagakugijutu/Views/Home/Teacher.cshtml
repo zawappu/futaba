@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "教員専用ログイン";
+}
+
+<h2>教員専用ページ</h2>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">@ViewBag.Error</div>
+}
+
+<form method="post" action="/Home/Teacher">
+    <input type="password" name="password" class="form-control" placeholder="パスワードを入力" style="max-width:300px;" />
+    <br />
+    <button type="submit" class="btn btn-success">ログイン</button>
+</form>
+
+<br />
+<a href="/Home/Index">投稿一覧に戻る</a>
